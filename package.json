@@ -1,0 +1,23 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "Learning React from Scratch",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrCodeWizard22/React_.git"
+  },
+  "keywords": [],
+  "author": "Piyush Varshney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrCodeWizard22/React_/issues"
+  },
+  "homepage": "https://github.com/MrCodeWizard22/React_#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}

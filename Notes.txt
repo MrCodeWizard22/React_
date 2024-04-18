@@ -1,0 +1,31 @@
+Dependencies two types of Dependencies are there:
+        1. dev Dependencies - required in development
+        2. normal Dependencies
+
+so to install dev Dependencieswe need a command on terminal which is 
+npm install -D parcel
+
+the node modules installed contain all the code/ data of the Dependency
+transitive Dependencies are Dependencies installed when we try to install 
+the parcel.
+We need to install a Dependency parcel and parcel has its other Dependencies
+and these have other and many more hence it is termed as transitive 
+Dependencies...
+
+** every Dependency in node modules has its own package.json folder **
+
+we need not to put this node modules to github so we will put it in 
+.gitinore file
+but it is not the case for package and packagelock.json
+
+if i have package and packagelock.json i can recreate all my modules
+
+
+npm vs npx 
+
+npx means executing the package...
+when we need to install the package we use npm, used to install,update 
+the packages of js 
+
+
+
