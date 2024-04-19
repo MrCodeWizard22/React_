@@ -1,3 +1,7 @@
+<<<<<***first lecture and second lecture basics ***>>>>>>
+
+
+
 Dependencies two types of Dependencies are there:
         1. dev Dependencies - required in development
         2. normal Dependencies
@@ -12,6 +16,10 @@ We need to install a Dependency parcel and parcel has its other Dependencies
 and these have other and many more hence it is termed as transitive 
 Dependencies...
 
+
+the mighty json******
+
+
 ** every Dependency in node modules has its own package.json folder **
 
 we need not to put this node modules to github so we will put it in 
@@ -21,11 +29,22 @@ but it is not the case for package and packagelock.json
 if i have package and packagelock.json i can recreate all my modules
 
 
-npm vs npx 
+<<<<<<******8npm vs npx *****>>>>
 
 npx means executing the package...
 when we need to install the package we use npm, used to install,update 
 the packages of js 
+
+
+
+---> to install the react dom you can write 
+npm install react-dom or npm i react-development
+now you have both react and react-dom installed in your system so you can remove the cdn linkes from the index.html file
+
+
+
+
+
 
 
 
