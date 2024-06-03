@@ -154,3 +154,24 @@
   .m-t-24 {
       margin-top: 24px;
   }
+
+  .User-fun{
+    display: flex;
+    border: 1px solid grey;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+  }
+  .User-class {
+    margin-top: 5px;
+    display: flex;
+    border: 1px solid grey;
+    flex-direction: column;
+    font-family: cursive;
+    align-items: flex-start; 
+  }
+  
+  .User-class button {
+    margin-top: 10px; 
+  }

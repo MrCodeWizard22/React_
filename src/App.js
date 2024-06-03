@@ -3,20 +3,54 @@ import ReactDOM from "react-dom";
 import "/index.css";
 import { Header } from "./components/Header";
 import { Body } from "./components/Body";
+import { Contact } from "./components/Contact";
+import { About } from "./components/About";
+import { Error } from "./components/Error";
+import { RestaurantMenu } from "./components/RestaurantMenu";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
+import { RestaurantMenu } from "./components/RestaurantMenu";
+
 const AppLayout = () => {
   return (
     <div className="App">
       <Header />
-      <Body />
+      <Outlet />
     </div>
   );
 };
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/body",
+        element: <Body />,
+      },
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/restaurants /: resId",
+        element: <RestaurantMenu />,
+      },
+    ],
+  },
+  {
+    path: "#",
+    element: <Error />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
-
-// export const RES_CDN_URL =
-//   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.91378&lng=78.080016&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-
-// export const MENU_CDN_URL =
-//   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=27.913562&lng=78.080701&restaurantId=";
+root.render(<RouterProvider router={appRouter} />);
