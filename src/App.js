@@ -1,4 +1,6 @@
 import React from "react";
+import userContext from "./utils/userContext";
+import { useContext, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "/index.css";
 import { Header } from "./components/Header";
@@ -9,13 +11,27 @@ import { Error } from "./components/Error";
 import { RestaurantMenu } from "./components/RestaurantMenu";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import { RestaurantMenu } from "./components/RestaurantMenu";
+import { RestMenu } from "./components/RestMenu";
+import { Provider } from "react-redux";
+import { appStore } from "./utils/appStore";
 
 const AppLayout = () => {
+  const [userInfo, setUserInfo] = useState();
+  useEffect(() => {
+    const data = {
+      name: "Dev Bhai",
+    };
+    setUserInfo(data.name);
+  }, []);
   return (
-    <div className="App">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <userContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
+        <div className="App">
+          <Header />
+          <Outlet />
+        </div>
+      </userContext.Provider>
+    </Provider>
   );
 };
 
@@ -41,8 +57,8 @@ const appRouter = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/restaurants /: resId",
-        element: <RestaurantMenu />,
+        path: "/restaurants/:id",
+        element: <RestMenu />,
       },
     ],
   },
