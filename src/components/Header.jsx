@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import userContext from "../utils/userContext";
 import { useContext } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
+
 export const Header = () => {
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(userContext);
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <div className="Header flex items-center flex-wrap bg-gray-100 p-4">
       <div className="logoContainer flex-shrink-0 mr-4">
@@ -46,7 +50,7 @@ export const Header = () => {
               to="/cart"
               className="text-green-500 hover:text-green-700 font-bold"
             >
-              Cart
+              Cart ({cartItems.length} items)
             </Link>
           </li>
         </ul>

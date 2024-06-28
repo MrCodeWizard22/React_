@@ -1,7 +1,15 @@
 import React from "react";
 import { CDN_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlices";
+import { useDispatch } from "react-redux";
 
 export const Item = ({ itemCards }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = (item) => {
+    dispatch(addItem(item));
+  };
+
   return (
     <>
       {itemCards.map((item, itemIndex) => (
@@ -24,7 +32,10 @@ export const Item = ({ itemCards }) => {
               className="w-full h-auto rounded-lg"
               alt={item?.card?.info?.name}
             />
-            <button className="absolute bottom-2 right-2 bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400">
+            <button
+              className="absolute bottom-2 right-2 bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+              onClick={() => handleClick(item)}
+            >
               + Add -
             </button>
           </div>
@@ -33,3 +44,5 @@ export const Item = ({ itemCards }) => {
     </>
   );
 };
+
+export default Item;
